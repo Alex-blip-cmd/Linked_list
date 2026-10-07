@@ -74,8 +74,9 @@ void insert_at_end(node_t **head_ref, double data) {
 void clear_list(node_t **head_ref) {
     node_t *current = *head_ref;
     while (current != NULL) {
+        node_t *copy = current->next;
         free(current);
-        current = current->next;
+        current = copy;
     }
     *head_ref = NULL;
 }
@@ -97,10 +98,12 @@ void delete_at_end(node_t **head_ref) {
         return;
     }
     node_t *current = *head_ref;
+    node_t *currentcop = NULL;
     while (current != NULL) {
+        currentcop=current;
         current = current->next;
     }
-    free(current);
+    free(currentcop);
 }
 
 array_t export(node_t **head_ref) {
