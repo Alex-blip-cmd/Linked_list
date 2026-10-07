@@ -35,6 +35,7 @@ int main(void) {
     push(&list, 7.0);
     push(&list, 8.0);
     delete_at_end(&list);
+    clear_list(&list);
     t=pop(&list, &result);
     printf("Popped: %.2f %d\n", result, t);
     t=pop(&list, &result);
