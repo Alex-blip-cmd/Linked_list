@@ -13,7 +13,7 @@ typedef struct node {
 	} node_t;
 
 typedef struct array {
-	double array[INT_MAX];
+	double array[100];
 } array_t;
 
 void push(node_t **head_ref, double data);

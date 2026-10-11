@@ -114,7 +114,22 @@ void delete_at_end(node_t **head_ref) {
 }
 
 array_t export(node_t **head_ref) {
-    double result=0;
+    array_t ret = {0};
+    if (head_ref == NULL || *head_ref == NULL) {
+        return ret;
+    }
+    int count = 0;
+    node_t *current = *head_ref;
+    while (current != NULL) {
+        count++;
+        current = current->next;
+    }
+    current = *head_ref;
+    for (int i = 0; i < count && i < INT_MAX; i++) {
+        ret.array[i] = current->data;
+        current = current->next;
+    }
+    return ret;
     
 }
 

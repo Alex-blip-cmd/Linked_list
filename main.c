@@ -54,5 +54,14 @@ int main(void) {
     clear_list(&list);
     t=pop(&list, &result);
     printf("Popped: %.2f %d\n", result, t);
+    push(&list, 3.0);
+    push(&list, 4.0);
+    push(&list, 5.0);
+    push(&list, 6.0);
+    push(&list, 7.0);
+    push(&list, 8.0);
+    array_t arr=export(&list);
+    printf("Array: %.2f \n", arr.array[0]);
+    printf("Array: %.2f \n", arr.array[1]);
     return 0;
 }
