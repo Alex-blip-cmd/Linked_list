@@ -13,15 +13,20 @@ typedef struct node {
 	} node_t;
 
 typedef struct array {
-	double array[100];
+	double *array;
+	int size;
+	int capacity;
 } array_t;
+
+//export fix, search node fix ok, delete at fehlt, zeitangabe
 
 void push(node_t **head_ref, double data);
 bool pop(node_t **head_ref, double *data);
 void insert_node(node_t **head_ref, double data, int index);
 void insert_at_end(node_t **head_ref, double data);
 void clear_list(node_t **head_ref);
-double search_node(node_t **head_ref, double data);
+int search_node(node_t **head_ref, double data);
+void delete_at(node_t **head_ref, double data);
 void delete_at_end(node_t **head_ref);
 array_t export(node_t **head_ref);
 

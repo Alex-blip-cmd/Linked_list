@@ -84,13 +84,15 @@ void clear_list(node_t **head_ref) {
     *head_ref = NULL;
 }
 
-double search_node(node_t **head_ref, double data) {
+int search_node(node_t **head_ref, double data) {
     node_t *current = *head_ref;
+    int i=0;
     while (current != NULL) {
         if (current->data == data) {
-            return current->data;
-        }else {
+            return i;
+        } else {
             current = current->next;
+            i++;
         }
     }
     return -1;
@@ -130,7 +132,22 @@ array_t export(node_t **head_ref) {
         current = current->next;
     }
     return ret;
-    
+}
+
+void delete_at(node_t **head_ref, double data) {
+
+}
+
+array_t* create(int initial_capacity) {
+    array_t *arr = malloc(sizeof(array_t));
+    arr->array = malloc(initial_capacity *sizeof(double));
+    if (!arr->array) {
+        free(arr);
+        return NULL;
+    }
+    arr->size = 0;
+    arr->capacity = initial_capacity;
+    return arr;
 }
 
 
