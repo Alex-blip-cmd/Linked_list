@@ -42,7 +42,7 @@ void insert_node(node_t **head_ref, double data, int index) {
         return;
     }
     node_t *current = *head_ref;
-    for (int i = 0; current != NULL && i < index - 1; i++) {
+    for (uint16_t i = 0; current != NULL && i < index - 1; i++) {
         current = current->next;
     }
     if (current == NULL) {
@@ -84,9 +84,9 @@ void clear_list(node_t **head_ref) {
     *head_ref = NULL;
 }
 
-int search_node(node_t **head_ref, double data) {
+uint16_t search_node(node_t **head_ref, double data) {
     node_t *current = *head_ref;
-    int i=0;
+    uint16_t i=0;
     while (current != NULL) {
         if (current->data == data) {
             return i;
@@ -115,39 +115,54 @@ void delete_at_end(node_t **head_ref) {
     current->next = NULL;
 }
 
+void delete_at(node_t **head_ref, double data) {
+    if (head_ref == NULL || *head_ref == NULL) {
+        return;
+    }
+    node_t *temp = *head_ref;
+    if (temp->data == data) {
+        *head_ref = temp->next;
+        free(temp);
+        return;
+    }
+    node_t *prev = NULL;
+    while (temp != NULL && temp->data != data) {
+        prev = temp;
+        temp = temp->next;
+    }
+    if (temp == NULL) {
+        return;
+    }
+    prev->next = temp->next;
+    free(temp);
+}
+
 array_t export(node_t **head_ref) {
-    array_t ret = {0};
+    array_t ret = { .array = NULL, .size = 0, .capacity = 0 };
+
     if (head_ref == NULL || *head_ref == NULL) {
         return ret;
     }
-    int count = 0;
+
+    uint16_t count = 0;
     node_t *current = *head_ref;
     while (current != NULL) {
         count++;
         current = current->next;
     }
+    double *arr = (double *)malloc(count * sizeof(double));
+    if (arr == NULL) {
+        return ret;
+    }
     current = *head_ref;
-    for (int i = 0; i < count && i < INT_MAX; i++) {
-        ret.array[i] = current->data;
+    for (int i = 0; i < count; i++) {
+        arr[i] = current->data;
         current = current->next;
     }
+    ret.array = arr;
+    ret.size = count;
+    ret.capacity = count;
     return ret;
-}
-
-void delete_at(node_t **head_ref, double data) {
-
-}
-
-array_t* create(int initial_capacity) {
-    array_t *arr = malloc(sizeof(array_t));
-    arr->array = malloc(initial_capacity *sizeof(double));
-    if (!arr->array) {
-        free(arr);
-        return NULL;
-    }
-    arr->size = 0;
-    arr->capacity = initial_capacity;
-    return arr;
 }
 
 

@@ -6,6 +6,7 @@
 #define UNTITLED_LINKED_LIST_H
 #include <limits.h>
 #include <stdbool.h>
+#include <stdint.h>
 
 typedef struct node {
 	double data;
@@ -14,18 +15,17 @@ typedef struct node {
 
 typedef struct array {
 	double *array;
-	int size;
-	int capacity;
+	uint16_t size;
+	uint16_t capacity;
 } array_t;
 
-//export fix, search node fix ok, delete at fehlt, zeitangabe
 
 void push(node_t **head_ref, double data);
 bool pop(node_t **head_ref, double *data);
 void insert_node(node_t **head_ref, double data, int index);
 void insert_at_end(node_t **head_ref, double data);
 void clear_list(node_t **head_ref);
-int search_node(node_t **head_ref, double data);
+uint16_t search_node(node_t **head_ref, double data);
 void delete_at(node_t **head_ref, double data);
 void delete_at_end(node_t **head_ref);
 array_t export(node_t **head_ref);
