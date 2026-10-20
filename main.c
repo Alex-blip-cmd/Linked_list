@@ -152,6 +152,5 @@ int main(void) {
     end=clock();
     erg=(end-start)/CLOCKS_PER_SEC;
     printf("Elapsed: %f seconds\n", erg);
-
     return 0;
 }
