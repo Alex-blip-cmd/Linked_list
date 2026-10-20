@@ -10,3 +10,5 @@ add_executable(untitled
         linkedlist.c
         doublelink.h
         doublelink.c)
+
+add_subdirectory(Bitweiseoperatoren)
