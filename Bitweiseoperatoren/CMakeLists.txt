@@ -3,4 +3,6 @@ project(Bitweiseoperatoren C)
 
 set(CMAKE_C_STANDARD 11)
 
-add_executable(Bitweiseoperatoren main.c)
+add_executable(Bitweiseoperatoren main.c
+        bitop.h
+        bitop.c)
