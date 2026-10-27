@@ -7,6 +7,7 @@ int main(void) {
     uint16_t B;
     int choice;
     do {
+
         print_status(A, B);
         printf("----------------------------------------\n");
         printf("1  A eingeben (Hex)\n");
