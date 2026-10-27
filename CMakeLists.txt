@@ -12,3 +12,4 @@ add_executable(untitled
         doublelink.c)
 
 add_subdirectory(Bitweiseoperatoren)
+add_subdirectory(2PunktRegler)

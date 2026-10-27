@@ -25,7 +25,7 @@ bool pop(node_t **head_ref, double *data);
 void insert_node(node_t **head_ref, double data, int index);
 void insert_at_end(node_t **head_ref, double data);
 void clear_list(node_t **head_ref);
-uint16_t search_node(node_t **head_ref, double data);
+int search_node(node_t **head_ref, double data);
 void delete_at(node_t **head_ref, double data);
 void delete_at_end(node_t **head_ref);
 array_t export(node_t **head_ref);

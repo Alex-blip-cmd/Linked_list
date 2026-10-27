@@ -84,7 +84,7 @@ void clear_list(node_t **head_ref) {
     *head_ref = NULL;
 }
 
-uint16_t search_node(node_t **head_ref, double data) {
+int search_node(node_t **head_ref, double data) {
     node_t *current = *head_ref;
     uint16_t i=0;
     while (current != NULL) {

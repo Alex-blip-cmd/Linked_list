@@ -12,6 +12,8 @@ typedef struct dnode {
     double data;
     struct dnode *next;
 } dnode_t;
+
+/// struct mit jhead und tail pointer uns size 
 typedef struct darray {
     double *array;
     uint16_t size;
