@@ -22,9 +22,8 @@ int main() {
     if (file==NULL) {
         return 1;
     }
-    printf("TEMP\n ");
-    while (true) {
-        sleep(1);
+    fprintf(file,"TEMP\n ");
+    while (x<=40) {
         if (istd<ist) {
             anstieg=true;
         }
@@ -33,8 +32,9 @@ int main() {
         if (istd>ist) {
             anstieg=false;
         }
-        printf("%i %f\n",x, ist);
+        fprintf(file,"%i %f\n",x, ist);
         x++;
     }
+    fclose(file);
     return 0;
 }
