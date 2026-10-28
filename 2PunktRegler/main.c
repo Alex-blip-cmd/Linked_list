@@ -22,7 +22,7 @@ int main() {
     if (file==NULL) {
         return 1;
     }
-    fprintf(file,"TEMP\n ");
+    fprintf(file,"ZEIT;TEMP\n ");
     while (x<=40) {
         if (istd<ist) {
             anstieg=true;
@@ -32,7 +32,7 @@ int main() {
         if (istd>ist) {
             anstieg=false;
         }
-        fprintf(file,"%i %f\n",x, ist);
+        fprintf(file,"%i; %g\n",x, ist);
         x++;
     }
     fclose(file);
